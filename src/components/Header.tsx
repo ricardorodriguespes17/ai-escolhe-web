@@ -7,7 +7,7 @@ type HeaderProps = {
 
 const Header = ({ }: HeaderProps) => {
   return (
-    <header className="h-16 w-full flex items-center justify-between shadow-sm px-4">
+    <header className="min-h-16 w-full flex items-center justify-between shadow-sm px-4 fixed bg-white">
       <Logo />
 
       <div className="flex items-center gap-2">
