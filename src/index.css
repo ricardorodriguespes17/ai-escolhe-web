@@ -7,6 +7,10 @@
   font-family: "Mali", cursive;
 }
 
+html, body, #root {
+  @apply w-screen h-screen overflow-hidden;
+}
+
 h1 {
   @apply text-2xl font-bold;
 }
