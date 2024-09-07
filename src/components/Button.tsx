@@ -38,6 +38,7 @@ const Button = (props: ButtonProps) => {
         sizes[size],
         variants[variant],
         className,
+        "flex items-center justify-center",
         "rounded-md disabled:opacity-50",
         "enabled:hover:brightness-125 transition-all"
       )}
