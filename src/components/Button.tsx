@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 
 type ButtonProps = {
@@ -8,6 +9,7 @@ type ButtonProps = {
   size?: "sm" | "md" | "lg"
   className?: string
   disabled?: boolean
+  path?: string
 }
 
 const Button = (props: ButtonProps) => {
@@ -16,13 +18,14 @@ const Button = (props: ButtonProps) => {
     size = "md",
     children,
     className,
+    path,
     ...rest
   } = props
 
   const sizes = {
-    sm: "h-10 aspect-square",
-    md: "h-11 min-w-24 w-full",
-    lg: "h-12 min-w-48 w-full",
+    sm: "h-10 aspect-square p-2",
+    md: "h-11 py-2 px-4",
+    lg: "h-12 py-2 px-6",
   }
 
   const variants = {
@@ -32,20 +35,31 @@ const Button = (props: ButtonProps) => {
     plain: "bg-transparent text-primary enabled:hover:bg-primary/10",
   }
 
+  const customClassName = twMerge(
+    sizes[size],
+    variants[variant],
+    className,
+    "flex items-center justify-center w-fit",
+    "rounded-md disabled:opacity-50",
+    "enabled:hover:brightness-125 transition-all"
+  )
+
+  if (path) {
+    return (
+      <Link
+        to={path}
+        className={customClassName}
+        children={children}
+      />
+    )
+  }
+
   return (
     <button
-      className={twMerge(
-        sizes[size],
-        variants[variant],
-        className,
-        "flex items-center justify-center",
-        "rounded-md disabled:opacity-50",
-        "enabled:hover:brightness-125 transition-all"
-      )}
+      className={customClassName}
+      children={children}
       {...rest}
-    >
-      {children}
-    </button>
+    />
   )
 }
 
