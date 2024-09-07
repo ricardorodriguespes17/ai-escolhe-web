@@ -16,8 +16,9 @@ const Logo = ({ size = "md", mini = false }: LogoProps) => {
 
   return (
     <div className={twMerge(
-      "flex items-center justify-center h-[50px]",
-      !mini && sizes[size]
+      "flex items-center justify-center",
+      !mini && sizes[size],
+      mini && "h-[50px] aspect-square"
     )}>
       <svg
         viewBox={`0 0 ${viewBoxWidth} 50`}
