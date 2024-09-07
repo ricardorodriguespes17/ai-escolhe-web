@@ -15,7 +15,8 @@ export default {
       primary: "#bb2d2d",
       secondary: "#ff9b00",
       mainText: "#1f2a37",
-      secondaryText: "#6b7280"
+      secondaryText: "#6b7280",
+      transparent: "#00000000"
     },
     extend: {},
   },
