@@ -32,7 +32,7 @@ const Button = (props: ButtonProps) => {
     solid: "bg-primary text-white",
     secondary: "bg-secondary text-white",
     outlined: "bg-transparent text-primary border border-primary border-solid enabled:hover:bg-primary/10",
-    plain: "bg-transparent text-primary enabled:hover:bg-primary/10",
+    plain: "bg-transparent text-primary",
   }
 
   const customClassName = twMerge(
