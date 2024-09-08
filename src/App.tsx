@@ -1,9 +1,8 @@
-const App = () => {
+import Router from "./routes"
 
+const App = () => {
   return (
-    <div>
-      <label>App</label>
-    </div>
+    <Router />
   )
 }
 
