@@ -1,8 +1,9 @@
+import Card from "./Card"
 import RecipeCard from "./RecipeCard"
 
 const RecipeContainer = () => {
   return (
-    <div className="flex flex-col gap-6 h-fit rounded-lg shadow-md bg-white p-6">
+    <Card>
       <h1>Receitas geradas</h1>
 
       <div className="flex flex-col flex-1 gap-4">
@@ -19,7 +20,7 @@ const RecipeContainer = () => {
           favorited={false}
         />
       </div>
-    </div>
+    </Card>
   )
 }
 

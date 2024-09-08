@@ -1,13 +1,15 @@
 import Logo from "../components/Logo"
 import Button from "../components/Button"
 import { FaLongArrowAltRight } from "react-icons/fa"
+import Card from "./Card"
 
 const SideContainer = () => {
   const ingridients = ["Bacon", "Ovos", "Macarrão", "Queijo", "Farinha"]
   const friends = ["Mariana", "Ana Caludia", "Thiago", "Vitor", "Ana Beatriz", "Rafa", "Adryellen"]
 
   return (
-    <div className="flex flex-col gap-6 w-1/4 min-w-[200px] h-auto rounded-lg shadow-md bg-white p-6">
+    <Card className="w-1/4 min-w-[200px]">
+    {/* <div className="flex flex-col gap-6 w-1/4 min-w-[200px] h-auto rounded-lg shadow-md bg-white p-6"> */}
       <h1 className="text-primary">Olá, Ricardo</h1>
 
       <div className="flex flex-col gap-2">
@@ -41,7 +43,7 @@ const SideContainer = () => {
           <FaLongArrowAltRight />
         </Button>
       </div>
-    </div>
+    </Card>
   )
 }
 
