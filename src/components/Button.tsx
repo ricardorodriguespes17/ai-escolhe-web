@@ -38,10 +38,10 @@ const Button = (props: ButtonProps) => {
   const customClassName = twMerge(
     sizes[size],
     variants[variant],
-    className,
     "flex items-center justify-center w-fit",
     "rounded-md disabled:opacity-50",
-    "enabled:hover:brightness-125 transition-all"
+    "enabled:hover:brightness-125 transition-all",
+    className,
   )
 
   if (path) {
