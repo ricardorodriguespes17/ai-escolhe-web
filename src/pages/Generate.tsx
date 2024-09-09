@@ -16,6 +16,7 @@ const GeneratePage = () => {
       <main className="flex flex-col h-full flex-1 justify-center gap-6 px-4 pb-6 pt-20 bg-background-light">
         <Card className="flex-col md:flex-row items-center h-full overflow-auto">
           <ChoiceIngredients
+            recipes={recipes}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
             setRecipes={setRecipes}

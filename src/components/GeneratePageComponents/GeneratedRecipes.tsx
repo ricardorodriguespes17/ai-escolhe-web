@@ -32,6 +32,7 @@ const GeneratedRecipes = ({ recipes, isLoading }: GeneratedRecipesProps) => {
 
       {recipes.map(recipe => (
         <RecipeCard
+          key={recipe.id}
           title={recipe.name}
           subTitle={recipe.description}
           rating={4}

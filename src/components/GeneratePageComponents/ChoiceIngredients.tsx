@@ -9,30 +9,41 @@ import { RecipeType } from "../../@types/RecipeTypes"
 type ChoiceIngredientsProps = {
   isLoading: boolean
   setIsLoading: (isLoading: boolean) => void
+  recipes: RecipeType[]
   setRecipes: (recipes: RecipeType[]) => void
 }
 
-const ChoiceIngredients = ({ isLoading, setIsLoading, setRecipes }: ChoiceIngredientsProps) => {
+const ChoiceIngredients = ({ isLoading, setIsLoading, recipes, setRecipes }: ChoiceIngredientsProps) => {
   const [ingredients, setIngredients] = useState([""])
   const [generateDisabled, setGenerateDisabled] = useState(true)
 
   useEffect(() => {
-    setRecipes([])
     setGenerateDisabled(ingredients.filter(item => item).length < 2)
+
+    if(recipes.length > 0) {
+      //confirmar limpeza das receitas anteriores
+    }
+
+    setRecipes([])
   }, [ingredients])
 
   const onSubmit = async () => {
-    if (ingredients.length < 2) {
+    const filteredIngredients = ingredients.filter(item => item)
+
+    setIngredients(filteredIngredients)
+
+    if (filteredIngredients.length < 2) {
       console.log("Deve escrever pelo menos 2 ingredientes")
       return
     }
 
-
     try {
       setIsLoading(true)
-      const response = await generateRecipe({ ingredients })
+      const response = await generateRecipe({ ingredients: filteredIngredients })
+      console.log(response)
       setRecipes(response.data.recipes)
     } catch (err) {
+      console.log(err)
       setRecipes([])
     } finally {
       setIsLoading(false)
