@@ -3,12 +3,8 @@ import Loading from "../Loading"
 import RecipeCard from "../RecipeCard"
 import useRecipeStore from "../../store/recipeSlice"
 
-type GeneratedRecipesProps = {
-  isLoading?: boolean
-}
-
-const GeneratedRecipes = ({ isLoading }: GeneratedRecipesProps) => {
-  const recipes = useRecipeStore(state => state.generatedRecipes)
+const GeneratedRecipes = () => {
+  const { isLoading, generatedRecipes } = useRecipeStore(state => state)
 
   if (isLoading) {
     return (
@@ -22,7 +18,7 @@ const GeneratedRecipes = ({ isLoading }: GeneratedRecipesProps) => {
 
   return (
     <div className="flex flex-col flex-1 h-full items-center gap-2">
-      {recipes.length === 0 ? (
+      {generatedRecipes.length === 0 ? (
         <>
           <h1>Suas receitas geradas aparecerão aqui</h1>
           <FaArrowDown className="mb-8" />
@@ -31,7 +27,7 @@ const GeneratedRecipes = ({ isLoading }: GeneratedRecipesProps) => {
         <h1 className="mb-4 w-full text-center">Receitas geradas</h1>
       )}
 
-      {recipes.map(recipe => (
+      {generatedRecipes.map(recipe => (
         <RecipeCard
           key={recipe.id}
           title={recipe.name}

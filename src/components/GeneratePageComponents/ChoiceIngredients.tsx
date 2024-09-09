@@ -7,14 +7,11 @@ import { generateRecipe } from "../../services/RecipeService"
 import useRecipeStore from "../../store/recipeSlice"
 import useIngredientStore from "../../store/ingredientsSlice"
 
-type ChoiceIngredientsProps = {
-  isLoading: boolean
-  setIsLoading: (isLoading: boolean) => void
-}
+const ChoiceIngredients = () => {
+  const { 
+    isLoading, setLoading, generatedRecipes, setGeneratedRecipes 
+  } = useRecipeStore(state => state)
 
-const ChoiceIngredients = ({ isLoading, setIsLoading }: ChoiceIngredientsProps) => {
-  const recipes = useRecipeStore(state => state.generatedRecipes)
-  const setRecipes = useRecipeStore(state => state.setGeneratedRecipes)
 
   const ingredients = useIngredientStore(state => state.ingredients)
   const setIngredients = useIngredientStore(state => state.setIngredients)
@@ -24,11 +21,11 @@ const ChoiceIngredients = ({ isLoading, setIsLoading }: ChoiceIngredientsProps) 
   useEffect(() => {
     setGenerateDisabled(ingredients.filter(item => item).length < 2)
 
-    if(recipes.length > 0) {
+    if(generatedRecipes.length > 0) {
       //confirmar limpeza das receitas anteriores
     }
 
-    setRecipes([])
+    setGeneratedRecipes([])
   }, [ingredients])
 
   const onSubmit = async () => {
@@ -42,14 +39,14 @@ const ChoiceIngredients = ({ isLoading, setIsLoading }: ChoiceIngredientsProps) 
     }
 
     try {
-      setIsLoading(true)
+      setLoading(true)
       const response = await generateRecipe({ ingredients: filteredIngredients })
-      setRecipes(response.data.recipes)
+      setGeneratedRecipes(response.data.recipes)
     } catch (err) {
       console.log(err)
-      setRecipes([])
+      setGeneratedRecipes([])
     } finally {
-      setIsLoading(false)
+      setLoading(false)
     }
   }
 
