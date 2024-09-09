@@ -4,17 +4,21 @@ import { RiAiGenerate } from "react-icons/ri"
 import { useEffect, useState } from "react"
 import TextInput from "../TextInput"
 import { generateRecipe } from "../../services/RecipeService"
-import { RecipeType } from "../../@types/RecipeTypes"
+import useRecipeStore from "../../store/recipeSlice"
+import useIngredientStore from "../../store/ingredientsSlice"
 
 type ChoiceIngredientsProps = {
   isLoading: boolean
   setIsLoading: (isLoading: boolean) => void
-  recipes: RecipeType[]
-  setRecipes: (recipes: RecipeType[]) => void
 }
 
-const ChoiceIngredients = ({ isLoading, setIsLoading, recipes, setRecipes }: ChoiceIngredientsProps) => {
-  const [ingredients, setIngredients] = useState([""])
+const ChoiceIngredients = ({ isLoading, setIsLoading }: ChoiceIngredientsProps) => {
+  const recipes = useRecipeStore(state => state.generatedRecipes)
+  const setRecipes = useRecipeStore(state => state.setGeneratedRecipes)
+
+  const ingredients = useIngredientStore(state => state.ingredients)
+  const setIngredients = useIngredientStore(state => state.setIngredients)
+
   const [generateDisabled, setGenerateDisabled] = useState(true)
 
   useEffect(() => {
@@ -40,7 +44,6 @@ const ChoiceIngredients = ({ isLoading, setIsLoading, recipes, setRecipes }: Cho
     try {
       setIsLoading(true)
       const response = await generateRecipe({ ingredients: filteredIngredients })
-      console.log(response)
       setRecipes(response.data.recipes)
     } catch (err) {
       console.log(err)
@@ -77,7 +80,7 @@ const ChoiceIngredients = ({ isLoading, setIsLoading, recipes, setRecipes }: Cho
 
       <div className="w-[300px] max-w-full flex flex-col gap-3">
         {ingredients.map((item, index) => (
-          <div className="flex items-center gap-2 w-full">
+          <div key={index} className="flex items-center gap-2 w-full">
             <TextInput
               value={item}
               disabled={isLoading}

@@ -1,14 +1,15 @@
 import { FaArrowDown } from "react-icons/fa"
-import { RecipeType } from "../../@types/RecipeTypes"
 import Loading from "../Loading"
 import RecipeCard from "../RecipeCard"
+import useRecipeStore from "../../store/recipeSlice"
 
 type GeneratedRecipesProps = {
-  recipes: RecipeType[]
   isLoading?: boolean
 }
 
-const GeneratedRecipes = ({ recipes, isLoading }: GeneratedRecipesProps) => {
+const GeneratedRecipes = ({ isLoading }: GeneratedRecipesProps) => {
+  const recipes = useRecipeStore(state => state.generatedRecipes)
+
   if (isLoading) {
     return (
       <div className="flex-1 flex justify-center items-center">

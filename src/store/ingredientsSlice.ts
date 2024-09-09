@@ -5,9 +5,10 @@ type Store = {
   addIngridient: () => void
   removeIngredient: (index: number) => void
   setIngredient: (value: string, index: number) => void
+  setIngredients: (ingredients: string[]) => void
 }
 
-const ingridientSlice = create<Store>()((set) => ({
+const useIngredientStore = create<Store>()((set) => ({
   ingredients: [""],
   addIngridient: () => set(state => ({
     ...state, ingredients: state.ingredients.concat("")
@@ -21,6 +22,9 @@ const ingridientSlice = create<Store>()((set) => ({
       return item
     })
   })),
+  setIngredients: (ingredients) => set(state => ({
+    ...state, ingredients
+  })),
 }))
 
-export default ingridientSlice
+export default useIngredientStore

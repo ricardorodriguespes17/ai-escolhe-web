@@ -12,7 +12,7 @@ type Store = {
   setLoading: (isLoading: boolean) => void
 }
 
-const recipeSlice = create<Store>()((set) => ({
+const useRecipeStore = create<Store>()((set) => ({
   generatedRecipes: [],
   setGeneratedRecipes: (recipes) => set(state => ({
     ...state,
@@ -37,4 +37,4 @@ const recipeSlice = create<Store>()((set) => ({
   setLoading: (isLoading) => set(state => ({ ...state, isLoading, })),
 }))
 
-export default recipeSlice
+export default useRecipeStore

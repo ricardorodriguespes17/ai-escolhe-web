@@ -6,7 +6,6 @@ import GeneratedRecipes from "../components/GeneratePageComponents/GeneratedReci
 import ChoiceIngredients from "../components/GeneratePageComponents/ChoiceIngredients"
 
 const GeneratePage = () => {
-  const [recipes, setRecipes] = useState<RecipeType[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
   return (
@@ -16,16 +15,13 @@ const GeneratePage = () => {
       <main className="flex flex-col h-full flex-1 justify-center gap-6 px-4 pb-6 pt-20 bg-background-light">
         <Card className="flex-col md:flex-row items-center h-full overflow-auto">
           <ChoiceIngredients
-            recipes={recipes}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
-            setRecipes={setRecipes}
           />
 
           <div className="flex-none w-full h-[1px] md:h-full md:w-[1px] bg-gray" />
 
           <GeneratedRecipes
-            recipes={recipes}
             isLoading={isLoading}
           />
         </Card>
