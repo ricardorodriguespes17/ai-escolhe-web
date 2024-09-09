@@ -23,7 +23,7 @@ const GeneratedRecipes = ({ recipes, isLoading }: GeneratedRecipesProps) => {
     <div className="flex flex-col flex-1 h-full items-center gap-2">
       {recipes.length === 0 ? (
         <>
-          <h1>Suas receitas geradas apareceram aqui</h1>
+          <h1>Suas receitas geradas aparecerão aqui</h1>
           <FaArrowDown />
         </>
       ) : (
