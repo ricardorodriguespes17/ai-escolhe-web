@@ -24,7 +24,7 @@ const GeneratedRecipes = ({ recipes, isLoading }: GeneratedRecipesProps) => {
       {recipes.length === 0 ? (
         <>
           <h1>Suas receitas geradas aparecerão aqui</h1>
-          <FaArrowDown />
+          <FaArrowDown className="mb-8" />
         </>
       ) : (
         <h1 className="mb-4 w-full text-center">Receitas geradas</h1>

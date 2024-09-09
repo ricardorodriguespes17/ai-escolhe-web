@@ -13,15 +13,15 @@ const GeneratePage = () => {
     <div className="flex flex-col w-full h-full">
       <Header />
 
-      <main className="flex flex-col h-auto flex-1 justify-center gap-6 px-4 pb-6 pt-20 bg-background-light">
-        <Card className="flex-col md:flex-row items-center h-full">
+      <main className="flex flex-col h-full flex-1 justify-center gap-6 px-4 pb-6 pt-20 bg-background-light">
+        <Card className="flex-col md:flex-row items-center h-full overflow-auto">
           <ChoiceIngredients
             isLoading={isLoading}
             setIsLoading={setIsLoading}
             setRecipes={setRecipes}
           />
 
-          <div className="w-full h-[1px] md:h-full md:w-[1px] bg-gray" />
+          <div className="flex-none w-full h-[1px] md:h-full md:w-[1px] bg-gray" />
 
           <GeneratedRecipes
             recipes={recipes}
