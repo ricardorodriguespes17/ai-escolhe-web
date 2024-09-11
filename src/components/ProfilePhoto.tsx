@@ -12,15 +12,15 @@ const ProfilePhoto = ({ url = "", size = "md", floating = true }: ProfilePhotoPr
   const [error, setError] = useState(false)
 
   const sizes = {
-    sm: "w-[80px]",
-    md: "w-[120px]"
+    sm: "w-[60px] text-3xl",
+    md: "w-[120px] text-4xl"
   }
 
   const className = twMerge(
     "overflow-hidden",
     sizes[size],
     "flex items-center justify-center",
-    "text-4xl text-primary",
+    "text-primary",
     "aspect-square rounded-full bg-white",
     floating && "absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2",
     "border-4 border-secondary border-solid"
