@@ -3,7 +3,7 @@ import { UserType } from '../@types/UserTypes'
 
 type Store = {
   user: UserType | null
-  setUser: (user: UserType) => void
+  setUser: (user: UserType | null) => void
 }
 
 const useUserStore = create<Store>()((set) => ({

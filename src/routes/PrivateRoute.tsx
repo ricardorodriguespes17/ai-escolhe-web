@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom"
 import BaseLayout from "../components/BaseLayout"
+import useUserStore from "../store/userStore"
 
 type PrivateRouteProps = {
   component: React.ComponentType,
@@ -7,7 +8,7 @@ type PrivateRouteProps = {
 }
 
 const PrivateRoute = ({ component: Component }: PrivateRouteProps) => {
-  const currentUser = true
+  const currentUser = useUserStore(state => state.user)
 
   return currentUser
     ? (<BaseLayout><Component /></BaseLayout>)
