@@ -5,7 +5,7 @@ const BaseLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex flex-col w-full h-full relative overflow-auto">
       <Header />
 
-      <main className="flex flex-col h-auto flex-1 justify-center gap-6 px-4 pb-6 pt-20 bg-background-light">
+      <main className="flex flex-col h-full flex-1 bg-background-light px-4 pb-6 pt-20">
         {children}
       </main>
     </div>
