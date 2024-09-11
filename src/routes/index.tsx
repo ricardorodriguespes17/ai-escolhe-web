@@ -12,7 +12,7 @@ const browserRouter = createBrowserRouter([
     element: <SplashPage />
   },
   {
-    path: "/home",
+    path: "/inicio",
     element: <PrivateRoute component={HomePage} />
   },
   {

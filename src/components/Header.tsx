@@ -17,8 +17,8 @@ const Header = ({ }: HeaderProps) => {
       <Logo mini={isMobile} />
 
       <div className="flex items-center gap-2">
-        <Button variant="plain" path="/home">
-          {isMobile ? <HiHome size={24} /> : "Home"}
+        <Button variant="plain" path="/inicio">
+          {isMobile ? <HiHome size={24} /> : "Início"}
         </Button>
         <Button variant="plain" path="/gerar">
           {isMobile ? <RiAiGenerate size={24} /> : "Gerar receita"}

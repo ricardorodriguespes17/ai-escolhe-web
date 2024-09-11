@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user)
-      navigate("/home")
+      navigate("/inicio")
   }, [user])
 
   const handleLogin = () => {

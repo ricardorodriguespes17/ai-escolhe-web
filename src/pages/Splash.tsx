@@ -1,13 +1,15 @@
 import { useEffect } from "react"
 import Logo from "../components/Logo"
 import { useNavigate } from "react-router-dom"
+import useUserStore from "../store/userStore"
 
 const SplashPage = () => {
   const navigate = useNavigate()
+  const { user } = useUserStore(state => state)
   
   useEffect(() => {
     setTimeout(() => {
-      navigate("/login")
+      navigate(user ? "/inicio" : "/login")
     }, 1500)
   }, [])
 
