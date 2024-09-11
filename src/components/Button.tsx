@@ -10,6 +10,7 @@ type ButtonProps = {
   className?: string
   disabled?: boolean
   path?: string
+  type?: "submit" | "button" | "reset"
 }
 
 const Button = (props: ButtonProps) => {
