@@ -8,12 +8,12 @@ type ProfilePhotoProps = {
   floating?: boolean
 }
 
-const ProfilePhoto = ({ url = "", size = "md", floating = true }: ProfilePhotoProps) => {
+const ProfilePhoto = ({ url = "", size = "md", floating }: ProfilePhotoProps) => {
   const [error, setError] = useState(false)
 
   const sizes = {
     sm: "w-[60px] text-3xl",
-    md: "w-[120px] text-4xl"
+    md: "w-[120px] text-5xl"
   }
 
   const className = twMerge(

@@ -18,7 +18,7 @@ const ProfilePage = () => {
   return (
     <div className="flex flex-col items-center gap-3">
       <div className="w-full bg-primary h-[180px] rounded-lg relative mb-[50px]">
-        <ProfilePhoto url={user?.imageURL} />
+        <ProfilePhoto url={user?.imageURL} floating />
       </div>
 
       <h1>{name}</h1>
