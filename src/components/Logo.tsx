@@ -1,15 +1,17 @@
 import { twMerge } from "tailwind-merge"
 
 type LogoProps = {
-  size?: "sm" | "md" | "lg",
+  size?: "sm" | "md" | "lg" | "xl",
   mini?: boolean
+  className?: string
 }
 
-const Logo = ({ size = "md", mini = false }: LogoProps) => {
+const Logo = ({ size = "md", mini = false, className }: LogoProps) => {
   const sizes = {
     sm: "w-[150px]",
     md: "w-[200px]",
-    lg: "w-[250px]"
+    lg: "w-[300px]",
+    xl: "w-[400px]"
   }
 
   const viewBoxWidth = mini ? 65 : 375
@@ -18,7 +20,8 @@ const Logo = ({ size = "md", mini = false }: LogoProps) => {
     <div className={twMerge(
       "flex items-center justify-center",
       !mini && sizes[size],
-      mini && "h-[40px] aspect-square"
+      mini && "h-[40px] aspect-square",
+      className
     )}>
       <svg
         viewBox={`0 0 ${viewBoxWidth} 65`}

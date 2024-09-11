@@ -4,8 +4,13 @@ import GeneratePage from "../pages/Generate"
 import PrivateRoute from "./PrivateRoute"
 import ProfilePage from "../pages/Profile"
 import LoginPage from "../pages/Login"
+import SplashPage from "../pages/Splash"
 
 const browserRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <SplashPage />
+  },
   {
     path: "/home",
     element: <PrivateRoute component={HomePage} />
