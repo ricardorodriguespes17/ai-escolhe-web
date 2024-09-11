@@ -13,7 +13,7 @@ const Header = ({ }: HeaderProps) => {
   const isMobile = useMediaQuery({ query: '(max-width: 670px)' })
 
   return (
-    <header className="min-h-16 w-full flex items-center justify-between shadow-sm px-4 fixed bg-white">
+    <header className="min-h-16 w-full flex items-center justify-between shadow-sm px-4 fixed bg-white z-10">
       <Logo mini={isMobile} />
 
       <div className="flex items-center gap-2">

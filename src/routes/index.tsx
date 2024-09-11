@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import HomePage from "../pages/Home"
 import GeneratePage from "../pages/Generate"
 import PrivateRoute from "./PrivateRoute"
+import ProfilePage from "../pages/Profile"
 
 const browserRouter = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const browserRouter = createBrowserRouter([
   {
     path: "/gerar",
     element: <PrivateRoute component={GeneratePage} />
+  },
+  {
+    path: "/perfil",
+    element: <PrivateRoute component={ProfilePage} />
   }
 ])
 

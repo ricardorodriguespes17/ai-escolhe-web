@@ -12,13 +12,13 @@ html, body, #root {
 }
 
 h1 {
-  @apply text-2xl font-bold text-center;
+  @apply text-2xl font-bold text-center w-fit;
 }
 
 h2 {
-  @apply text-xl font-bold text-center;
+  @apply text-xl font-bold text-center w-fit;
 }
 
 h3 {
-  @apply text-lg font-bold text-center;
+  @apply text-lg font-bold text-center w-fit;
 }
