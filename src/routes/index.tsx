@@ -1,15 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import HomePage from "../pages/Home"
 import GeneratePage from "../pages/Generate"
+import PrivateRoute from "./PrivateRoute"
 
 const browserRouter = createBrowserRouter([
   {
     path: "/home",
-    element: <HomePage />
+    element: <PrivateRoute component={HomePage} />
   },
   {
     path: "/gerar",
-    element: <GeneratePage />
+    element: <PrivateRoute component={GeneratePage} />
   }
 ])
 
