@@ -23,7 +23,7 @@ const ProfilePage = () => {
 
       <h1>{name}</h1>
 
-      <div className="flex gap-3 w-full">
+      <div className="flex flex-col-reverse md:flex-row pb-10 gap-3 w-full">
         <div className="flex-1 flex flex-col gap-2">
           <Card className="gap-1">
             <h2>Estatísticas</h2>
