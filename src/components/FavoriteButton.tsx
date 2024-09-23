@@ -1,18 +1,31 @@
-import { IoHeartOutline, IoHeartSharp } from "react-icons/io5"
+import { useState } from "react"
 import Button from "./Button"
+import { FaRegStar, FaStar } from "react-icons/fa"
 
 type FavoriteButtonProps = {
   favorited?: boolean
   onFavorite?: () => void
 }
 
-const FavoriteButton = ({ favorited, onFavorite }: FavoriteButtonProps) => {
+const FavoriteButton = ({ favorited = false, onFavorite }: FavoriteButtonProps) => {
+  const [isFavorited, setFavorited] = useState(favorited)
+
+  const handleFavorite = () => {
+    setFavorited(!isFavorited)
+    onFavorite?.()
+  }
+
   return (
-    <Button variant="plain" size="sm" onClick={onFavorite}>
-      {favorited ? (
-        <IoHeartSharp size={28} />
+    <Button
+      title={isFavorited ? "Remover dos favoritos" : "Favoritar"}
+      variant="plain"
+      size="sm"
+      onClick={handleFavorite}
+    >
+      {isFavorited ? (
+        <FaStar size={28} />
       ) : (
-        <IoHeartOutline size={28} />
+        <FaRegStar size={28} />
       )}
     </Button>
   )
