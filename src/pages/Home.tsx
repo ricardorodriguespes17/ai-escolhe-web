@@ -16,9 +16,16 @@ const HomePage = () => {
 
           <div className="bg-background-light p-2 rounded">
             <RecipeCard
-              title="Macarrão à Carbonara"
-              subTitle="Um clássico italiano feito com bacon, ovos e macarrão para uma refeição cremosa e saborosa."
-              favorited={false}
+              recipe={{
+                id: "1",
+                name: "Macarrão à Carbonara",
+                description: "Um clássico italiano feito com bacon, ovos e macarrão para uma refeição cremosa e saborosa.",
+                categories: [],
+                ingredients: [],
+                kitchenware: [],
+                preparationTime: 10,
+                steps: []
+              }}
             />
           </div>
         </FeedModelCard>

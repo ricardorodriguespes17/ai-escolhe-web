@@ -40,7 +40,7 @@ const Button = (props: ButtonProps) => {
     sizes[size],
     variants[variant],
     "flex items-center justify-center w-fit",
-    "rounded-md disabled:opacity-50",
+    "rounded-md disabled:opacity-50 *:cursor-pointer",
     "enabled:hover:brightness-125 transition-all",
     className,
   )

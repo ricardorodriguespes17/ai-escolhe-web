@@ -42,10 +42,7 @@ const GeneratedRecipes = () => {
       {generatedRecipes.map(recipe => (
         <RecipeCard
           key={recipe.id}
-          title={recipe.name}
-          subTitle={recipe.description}
-          rating={4}
-          favorited={false}
+          recipe={recipe}
           onOpen={() => handleOpenRecipe(recipe)}
         />
       ))}
