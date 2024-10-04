@@ -3,7 +3,6 @@ import Button from "./Button"
 import Logo from "./Logo"
 import { useMediaQuery } from 'react-responsive'
 import { RiAiGenerate } from "react-icons/ri"
-import { FaUser } from "react-icons/fa"
 
 type HeaderProps = {
 
@@ -23,9 +22,9 @@ const Header = ({ }: HeaderProps) => {
         <Button variant="plain" path="/gerar">
           {isMobile ? <RiAiGenerate size={24} /> : "Gerar receita"}
         </Button>
-        <Button variant="plain" path="/perfil">
+        {/* <Button variant="plain" path="/perfil">
           {isMobile ? <FaUser size={24} /> : "Perfil"}
-        </Button>
+        </Button> */}
       </div>
     </header>
   )

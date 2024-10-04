@@ -1,5 +1,4 @@
-import FeedModelCard from "../components/FeedModelCard"
-import RecipeCard from "../components/RecipeCard"
+import Card from "../components/Card"
 import SideContainer from "../components/SideContainer"
 
 const HomePage = () => {
@@ -8,27 +7,10 @@ const HomePage = () => {
       <SideContainer />
 
       <div className="flex flex-1 flex-col gap-6">
-        <FeedModelCard
-          userName="Mariana Azevedo"
-          time="a 2 horas"
-        >
-          <p>Acabei de fazer essa deliciosa receita de Macarrão à Carbonara. Amei!!!</p>
-
-          <div className="bg-background-light p-2 rounded">
-            <RecipeCard
-              recipe={{
-                id: "1",
-                name: "Macarrão à Carbonara",
-                description: "Um clássico italiano feito com bacon, ovos e macarrão para uma refeição cremosa e saborosa.",
-                categories: [],
-                ingredients: [],
-                kitchenware: [],
-                preparationTime: 10,
-                steps: []
-              }}
-            />
-          </div>
-        </FeedModelCard>
+        <Card className="gap-1">
+          <strong>Não há receitas geradas recentemente, vamos começar?</strong>
+          <p>Clique em <span className="text-primary">Gerar receita</span> no topo da página</p>
+        </Card>
       </div>
     </div>
   )
