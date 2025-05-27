@@ -1,14 +1,14 @@
-import { FaArrowDown } from "react-icons/fa"
-import Loading from "../Loading"
-import RecipeCard from "../RecipeCard"
-import useRecipeStore from "../../store/recipeSlice"
-import { useState } from "react"
-import { RecipeType } from "../../@types/RecipeTypes"
-import ModalOpenRecipe from "./ModalOpenRecipe"
+import { FaArrowDown } from "react-icons/fa";
+import Loading from "../Loading";
+import RecipeCard from "../RecipeCard";
+import useRecipeStore from "../../store/recipeSlice";
+import { useState } from "react";
+import { RecipeType } from "../../@types/RecipeTypes";
+import ModalOpenRecipe from "./ModalOpenRecipe";
 
 const GeneratedRecipes = () => {
-  const { isLoading, generatedRecipes } = useRecipeStore(state => state)
-  const [openedRecipe, setOpenedRecipe] = useState<RecipeType>()
+  const { isLoading, generatedRecipes } = useRecipeStore((state) => state);
+  const [openedRecipe, setOpenedRecipe] = useState<RecipeType>();
 
   if (isLoading) {
     return (
@@ -17,16 +17,16 @@ const GeneratedRecipes = () => {
           <Loading />
         </div>
       </div>
-    )
+    );
   }
 
   const handleOpenRecipe = (recipe: RecipeType) => {
-    setOpenedRecipe(recipe)
-  }
+    setOpenedRecipe(recipe);
+  };
 
   const handleCloseRecipe = () => {
-    setOpenedRecipe(undefined)
-  }
+    setOpenedRecipe(undefined);
+  };
 
   return (
     <div className="flex flex-col flex-1 h-full items-center gap-2 relative">
@@ -39,20 +39,19 @@ const GeneratedRecipes = () => {
         <h1 className="mb-4 w-full text-center">Receitas geradas</h1>
       )}
 
-      {generatedRecipes.map(recipe => (
-        <RecipeCard
-          key={recipe.id}
-          recipe={recipe}
-          onOpen={() => handleOpenRecipe(recipe)}
-        />
-      ))}
+      <div className="flex flex-col gap-4 w-full">
+        {generatedRecipes.map((recipe) => (
+          <RecipeCard
+            key={recipe.id}
+            recipe={recipe}
+            onOpen={() => handleOpenRecipe(recipe)}
+          />
+        ))}
+      </div>
 
-      <ModalOpenRecipe
-        recipe={openedRecipe}
-        onClose={handleCloseRecipe}
-      />
+      <ModalOpenRecipe recipe={openedRecipe} onClose={handleCloseRecipe} />
     </div>
-  )
-}
+  );
+};
 
-export default GeneratedRecipes
+export default GeneratedRecipes;
