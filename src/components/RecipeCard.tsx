@@ -1,18 +1,34 @@
-import { FaBookmark, FaRegBookmark, FaShare } from "react-icons/fa"
-import { RecipeType } from "../@types/RecipeTypes"
-import Logo from "../components/Logo"
-import Button from "./Button"
-import FavoriteButton from "./FavoriteButton"
-import { useState } from "react"
+import { FaBookmark, FaRegBookmark, FaShare } from "react-icons/fa";
+import { RecipeType } from "../@types/RecipeTypes";
+import Logo from "../components/Logo";
+import Button from "./Button";
+import FavoriteButton from "./FavoriteButton";
+import { useState } from "react";
+import { addRecipe } from "../services/RecipeService";
+import useUserStore from "../store/userStore";
 
 type RecipeCardProps = {
-  key?: string
-  recipe: RecipeType
-  onOpen?: () => void
-}
+  key?: string;
+  recipe: RecipeType;
+  onOpen?: () => void;
+};
 
 const RecipeCard = ({ key, recipe, onOpen }: RecipeCardProps) => {
-  const [saved, setSaved] = useState(false)
+  const [saved, setSaved] = useState(false);
+  const { user } = useUserStore();
+
+  const handleSave = async () => {
+    if (!user) return;
+
+    if (!saved) {
+      addRecipe({
+        ...recipe,
+        createdBy: user.id,
+      });
+    }
+
+    setSaved((value) => !value);
+  };
 
   return (
     <div className="flex flex-col gap-2">
@@ -27,9 +43,7 @@ const RecipeCard = ({ key, recipe, onOpen }: RecipeCardProps) => {
           onClick={onOpen}
         >
           <p>{recipe.name}</p>
-          <p className="text-secondaryText text-sm">
-            {recipe.description}
-          </p>
+          <p className="text-secondaryText text-sm">{recipe.description}</p>
         </div>
 
         <div className="h-full">
@@ -42,7 +56,7 @@ const RecipeCard = ({ key, recipe, onOpen }: RecipeCardProps) => {
           variant="plain"
           className="flex gap-2 p-0"
           title="Salvar receita"
-          onClick={() => setSaved(!saved)}
+          onClick={handleSave}
         >
           {saved ? <FaBookmark /> : <FaRegBookmark />}
           <label className="hidden sm:block">Salvar</label>
@@ -57,7 +71,7 @@ const RecipeCard = ({ key, recipe, onOpen }: RecipeCardProps) => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecipeCard
+export default RecipeCard;
